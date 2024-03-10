@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.11.25"
+  },
+  "name": "task2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "undici-types": "^5.26.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

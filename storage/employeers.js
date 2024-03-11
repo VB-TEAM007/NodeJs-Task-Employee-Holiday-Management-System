@@ -5,12 +5,9 @@ var Employeers = /** @class */ (function () {
         this.employees = [];
     }
     Employeers.prototype.getEmployeeById = function (employeeId) {
-        throw new Error('Method not implemented.');
+        return this.employees.find(function (employee) { return employee.id === employeeId; });
     };
     Employeers.prototype.updateEmployee = function (employee) {
-        throw new Error('Method not implemented.');
-    };
-    Employeers.prototype.find = function (arg0) {
         throw new Error('Method not implemented.');
     };
     Employeers.prototype.addEmployee = function (employee) {

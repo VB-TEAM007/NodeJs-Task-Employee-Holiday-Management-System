@@ -44,11 +44,11 @@ var HolidayManager = /** @class */ (function () {
             .getHolidayRequests()
             .find(function (request) { return request.status === 'pending' && request.employeeId === requestId; });
         if (request) {
-            // Update request status to approved
             request.status = 'approved';
-            var employees = this.getEmployees();
-            this.employeers[requestId].remainingHolidays -= Math.ceil((request.endDate.getTime() - request.startDate.getTime()) / (1000 * 60 * 60 * 24));
-            this.employeers.updateEmployee(employees);
+            var employees = this.employeers.getEmployeeById(requestId);
+            if (employees) {
+                employees.remainingHolidays -= Math.ceil((request.endDate.getTime() - request.startDate.getTime()) / (1000 * 60 * 60 * 24));
+            }
             console.log('Holiday request approved successfully.');
         }
         else {
@@ -60,7 +60,6 @@ var HolidayManager = /** @class */ (function () {
             .getHolidayRequests()
             .find(function (request) { return request.status === 'pending' && request.employeeId === requestId; });
         if (request) {
-            // Update request status to rejected
             request.status = 'rejected';
             console.log('Holiday request rejected successfully.');
         }

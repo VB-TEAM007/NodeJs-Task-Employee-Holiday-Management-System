@@ -58,17 +58,15 @@ export default class HolidayManager {
 
         if (request) {
             request.status = 'approved';
-            /*const employees = this.getEmployees();
-            this.employeers[requestId].remainingHolidays -= Math.ceil((request.endDate.getTime() - request.startDate.getTime()) / (1000 * 60 * 60 * 24));
-            this.employeers.updateEmployee(employees);
-            */
+            const employees = this.employeers.getEmployeeById(requestId);
+            if(employees){
+            employees.remainingHolidays -= Math.ceil((request.endDate.getTime() - request.startDate.getTime()) / (1000 * 60 * 60 * 24));
+            }            
             console.log('Holiday request approved successfully.');
         } else {
             console.log('Invalid request ID or request already approved/rejected.');
         }
-    }
-
-    
+    }  
 
     rejectHolidayRequest(requestId: number): void {
         const request = this.holidayRequests
